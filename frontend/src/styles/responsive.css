@@ -66,6 +66,39 @@
     .footer__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .hero__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__card {
+        max-width: 320px;
+    }
+
+    .about-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .journey {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin-inline: auto;
+    }
+
+    .journey__step:not(:last-child)::after {
+        content: "\2193";
+        top: auto;
+        right: auto;
+        bottom: calc(-1 * var(--space-5));
+        left: 50%;
+        width: 2rem;
+        height: var(--space-5);
+        margin: 0 0 0 -1rem;
+    }
+
+    .life-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 /* ============ Mobile ============ */
@@ -101,9 +134,27 @@
     .card {
         padding: var(--space-5);
     }
+
+    .hero__logo {
+        max-width: 170px;
+    }
+
+    .about-preview__panel {
+        padding: var(--space-6);
+    }
 }
 
 /* ============ Small phones ============ */
+@media (max-width: 600px) {
+    .life-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .life-tile {
+        min-height: 180px;
+    }
+}
+
 @media (max-width: 480px) {
     .btn-group {
         flex-direction: column;

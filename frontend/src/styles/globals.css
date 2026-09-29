@@ -83,7 +83,8 @@ ol {
 }
 
 .section--primary :focus-visible,
-.footer :focus-visible {
+.footer :focus-visible,
+.hero :focus-visible {
     outline-color: #ffffff;
 }
 
@@ -154,7 +155,19 @@ ol {
     padding: 3rem 1.5rem;
 }
 
-/* ============ App shell (Phase 4) ============ */
+.section-note {
+    margin: var(--space-5) 0 0;
+    font-size: var(--fs-sm);
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+.section-cta {
+    margin-top: var(--space-6);
+    text-align: center;
+}
+
+/* ============ App shell ============ */
 .app-shell {
     display: flex;
     flex-direction: column;
@@ -217,6 +230,18 @@ ol {
 .badge--sample {
     background: var(--color-accent-100);
     color: #7a4a00;
+}
+
+.icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: var(--space-4);
+    font-size: 1.6rem;
+    background: var(--color-primary-100);
+    border-radius: 50%;
 }
 
 /* ============ Buttons ============ */
@@ -329,6 +354,10 @@ ol {
     gap: var(--space-3);
 }
 
+.btn-group--center {
+    justify-content: center;
+}
+
 /* ============ Section title ============ */
 .section-title {
     max-width: 720px;
@@ -406,7 +435,7 @@ ol {
     }
 }
 
-/* ============ Navbar (Phase 4) ============ */
+/* ============ Navbar ============ */
 .navbar {
     position: sticky;
     top: 0;
@@ -529,7 +558,7 @@ ol {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ============ Footer (Phase 4) ============ */
+/* ============ Footer ============ */
 .footer {
     padding-top: var(--space-8);
     color: rgba(255, 255, 255, 0.85);
@@ -605,6 +634,314 @@ ol {
 
 .footer__bottom p {
     margin: 0;
+}
+
+/* ============ Homepage (Phase 5) ============ */
+
+/* ----- Hero ----- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding-top: clamp(3rem, 2rem + 5vw, 6rem);
+    padding-bottom: clamp(6rem, 4rem + 8vw, 9rem);
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-900));
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero::before {
+    top: -160px;
+    right: -120px;
+    width: 420px;
+    height: 420px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.hero::after {
+    bottom: -110px;
+    left: -80px;
+    width: 260px;
+    height: 260px;
+    background: rgba(245, 166, 35, 0.15);
+}
+
+.hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: var(--space-7);
+}
+
+.hero__eyebrow {
+    display: inline-block;
+    margin-bottom: var(--space-4);
+    padding: 0.35rem 1rem;
+    font-family: var(--font-heading);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--color-primary-900);
+    background: var(--color-accent-500);
+    border-radius: var(--radius-full);
+}
+
+.hero__title {
+    margin-bottom: var(--space-4);
+    color: #ffffff;
+}
+
+.hero__school {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-h3);
+    font-weight: 600;
+    color: var(--color-accent-500);
+}
+
+.hero__text {
+    max-width: 560px;
+    margin-bottom: var(--space-6);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero__visual {
+    display: flex;
+    justify-content: center;
+}
+
+.hero__card {
+    width: 100%;
+    max-width: 380px;
+    padding: var(--space-6);
+    text-align: center;
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero__logo {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin: 0 auto var(--space-4);
+}
+
+.hero__caption {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-heading);
+}
+
+/* ----- Highlights (overlap the hero) ----- */
+.highlights {
+    position: relative;
+    z-index: 2;
+    margin-top: calc(-1 * var(--space-8));
+    padding-bottom: var(--section-padding);
+}
+
+.highlight-card {
+    text-align: center;
+}
+
+.highlight-card h3,
+.feature-card h3 {
+    font-size: 1.1rem;
+}
+
+.highlight-card p,
+.feature-card p {
+    margin: 0;
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+}
+
+/* ----- About preview ----- */
+.about-preview {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: var(--space-7);
+}
+
+.about-preview__panel {
+    padding: var(--space-7);
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-900));
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.about-preview__panel h3 {
+    margin-bottom: var(--space-5);
+    color: #ffffff;
+}
+
+.check-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.check-list li {
+    position: relative;
+    margin-bottom: var(--space-3);
+    padding-left: 2rem;
+}
+
+.check-list li:last-child {
+    margin-bottom: 0;
+}
+
+.check-list li::before {
+    content: "\2713";
+    position: absolute;
+    top: 0.15rem;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary-900);
+    background: var(--color-accent-500);
+    border-radius: 50%;
+}
+
+/* ----- Academic journey ----- */
+.journey {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.journey__step {
+    position: relative;
+    padding: var(--space-6) var(--space-5);
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.journey__step:not(:last-child)::after {
+    content: "\2192";
+    position: absolute;
+    top: 50%;
+    right: calc(-1 * var(--space-5));
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--space-5);
+    height: 2rem;
+    margin-top: -1rem;
+    font-weight: 700;
+    color: var(--color-primary-600);
+}
+
+.journey__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-bottom: var(--space-3);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--color-primary-600);
+    border-radius: 50%;
+}
+
+.journey__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-h4);
+}
+
+.journey__classes {
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+    color: var(--color-primary-600);
+}
+
+.journey__text {
+    margin: 0;
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+}
+
+/* ----- School life ----- */
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+}
+
+.life-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 220px;
+    padding: var(--space-5);
+    overflow: hidden;
+    color: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.life-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.life-tile:nth-child(3n + 1) {
+    background: linear-gradient(145deg, var(--color-primary-500), var(--color-primary-900));
+}
+
+.life-tile:nth-child(3n + 2) {
+    background: linear-gradient(145deg, #c96a0a, #8a4300);
+}
+
+.life-tile:nth-child(3n) {
+    background: linear-gradient(145deg, #1a7f8e, #0f4f5c);
+}
+
+.life-tile__icon {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-5);
+    font-size: 2.6rem;
+}
+
+.life-tile h3 {
+    margin-bottom: var(--space-2);
+    font-size: 1.25rem;
+    color: #ffffff;
+}
+
+.life-tile p {
+    margin: 0;
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.92);
 }
 
 /* ============ Forms (used from Phase 6) ============ */
