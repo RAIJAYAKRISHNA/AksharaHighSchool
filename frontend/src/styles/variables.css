@@ -1,5 +1,72 @@
 :root {
-    --font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    --text-color: #1f2937;
-    --bg-color: #ffffff;
+    /* ---------- Brand colors (placeholder: replace with logo colors) ---------- */
+    --color-primary-50: #eef4ff;
+    --color-primary-100: #dbe7ff;
+    --color-primary-200: #b9d0ff;
+    --color-primary-500: #2f6fd6;
+    --color-primary-600: #1f56b5;
+    --color-primary-700: #1a4494;
+    --color-primary-900: #0f2a5c;
+
+    --color-accent-100: #ffedd5;
+    --color-accent-500: #f5a623;
+    --color-accent-600: #e0921a;
+
+    /* ---------- Neutrals ---------- */
+    --color-bg: #ffffff;
+    --color-bg-alt: #f5f8fd;
+    --color-border: #e2e8f0;
+    --color-text: #1e293b;
+    --color-text-muted: #475569;
+    --color-heading: #0f2a5c;
+
+    /* ---------- Feedback ---------- */
+    --color-success: #15803d;
+    --color-success-bg: #dcfce7;
+    --color-error: #b91c1c;
+    --color-error-bg: #fee2e2;
+
+    /* ---------- Typography ---------- */
+    --font-heading: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+    --fs-xs: 0.8rem;
+    --fs-sm: 0.9rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.15rem;
+    --fs-h1: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+    --fs-h2: clamp(1.6rem, 1.2rem + 2vw, 2.5rem);
+    --fs-h3: clamp(1.25rem, 1.1rem + 0.8vw, 1.6rem);
+    --fs-h4: 1.15rem;
+
+    /* ---------- Spacing ---------- */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+    --section-padding: clamp(3rem, 2rem + 4vw, 6rem);
+
+    /* ---------- Shape ---------- */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-full: 999px;
+
+    /* ---------- Shadows ---------- */
+    --shadow-sm: 0 1px 3px rgba(15, 42, 92, 0.08);
+    --shadow-md: 0 8px 24px rgba(15, 42, 92, 0.12);
+    --shadow-lg: 0 16px 40px rgba(15, 42, 92, 0.16);
+
+    /* ---------- Layout ---------- */
+    --container-max: 1200px;
+    --container-padding: 1.5rem;
+    --navbar-height: 76px;
+
+    /* ---------- Motion ---------- */
+    --transition: 0.2s ease;
+    --focus-ring: #2f6fd6;
 }

@@ -1,1 +1,43 @@
-/* Responsive rules are added in Phase 3. */
+/* ============ Tablet ============ */
+@media (max-width: 1024px) {
+    .grid--4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid--3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ============ Mobile ============ */
+@media (max-width: 768px) {
+    :root {
+        --container-padding: 1.15rem;
+        --navbar-height: 68px;
+    }
+
+    .grid--2,
+    .grid--3,
+    .grid--4 {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        margin-bottom: var(--space-6);
+    }
+
+    .card {
+        padding: var(--space-5);
+    }
+}
+
+/* ============ Small phones ============ */
+@media (max-width: 480px) {
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .btn-group .btn {
+        width: 100%;
+    }
+}
