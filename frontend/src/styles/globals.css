@@ -82,7 +82,8 @@ ol {
     outline-offset: 2px;
 }
 
-.section--primary :focus-visible {
+.section--primary :focus-visible,
+.footer :focus-visible {
     outline-color: #ffffff;
 }
 
@@ -151,6 +152,41 @@ ol {
     max-width: 900px;
     margin: 0 auto;
     padding: 3rem 1.5rem;
+}
+
+/* ============ App shell (Phase 4) ============ */
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-content {
+    flex: 1;
+}
+
+.page-content:focus {
+    outline: none;
+}
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: var(--space-4);
+    z-index: 2000;
+    padding: 0.7rem 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--color-primary-700);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    transform: translateY(-120%);
+    transition: transform var(--transition);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    color: #ffffff;
+    text-decoration: none;
 }
 
 /* ============ Card & badge ============ */
@@ -368,6 +404,207 @@ ol {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* ============ Navbar (Phase 4) ============ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: var(--navbar-height);
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+.navbar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    color: var(--color-heading);
+}
+
+.navbar__brand:hover {
+    color: var(--color-heading);
+    text-decoration: none;
+}
+
+.navbar__logo {
+    height: 52px;
+    width: auto;
+}
+
+.navbar__brand-text {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.15;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar__link {
+    display: block;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--color-text);
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+}
+
+.navbar__link:hover {
+    background: var(--color-primary-50);
+    color: var(--color-primary-700);
+    text-decoration: none;
+}
+
+.navbar__link--active {
+    background: var(--color-primary-100);
+    color: var(--color-primary-700);
+    font-weight: 600;
+}
+
+.navbar__cta {
+    white-space: nowrap;
+}
+
+.navbar__toggle {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+.navbar__toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-heading);
+    border-radius: 2px;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.navbar__toggle--open .navbar__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle--open .navbar__toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar__toggle--open .navbar__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============ Footer (Phase 4) ============ */
+.footer {
+    padding-top: var(--space-8);
+    color: rgba(255, 255, 255, 0.85);
+    background: var(--color-primary-900);
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+    gap: var(--space-7);
+    padding-bottom: var(--space-7);
+}
+
+.footer__logo-wrap {
+    display: inline-block;
+    margin-bottom: var(--space-4);
+    padding: 0.5rem 0.75rem;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+}
+
+.footer__logo {
+    height: 56px;
+    width: auto;
+}
+
+.footer__tagline {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.footer__heading {
+    margin-bottom: var(--space-4);
+    font-size: 1.05rem;
+    color: #ffffff;
+}
+
+.footer__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer__links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.footer a:hover {
+    color: var(--color-accent-500);
+    text-decoration: none;
+}
+
+.footer__contact {
+    font-style: normal;
+}
+
+.footer__contact p {
+    margin-bottom: 0.6rem;
+}
+
+.footer__bottom {
+    padding-block: var(--space-5);
+    font-size: var(--fs-sm);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer__bottom p {
+    margin: 0;
 }
 
 /* ============ Forms (used from Phase 6) ============ */

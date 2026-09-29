@@ -1,3 +1,58 @@
+/* ============ Wide desktop: keep the navbar from overflowing ============ */
+@media (min-width: 1241px) and (max-width: 1399px) {
+    .navbar__brand-text {
+        display: none;
+    }
+}
+
+/* ============ Navbar becomes a mobile menu ============ */
+@media (max-width: 1240px) {
+    .navbar__toggle {
+        display: flex;
+    }
+
+    .navbar__menu {
+        position: fixed;
+        top: var(--navbar-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-5);
+        padding: var(--space-5) var(--container-padding) var(--space-7);
+        overflow-y: auto;
+        background: #ffffff;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 0.25s ease, visibility 0.25s;
+    }
+
+    .navbar__menu--open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .navbar__links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .navbar__link {
+        padding: 1rem;
+        font-size: 1.05rem;
+        border-radius: var(--radius-md);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .navbar__cta {
+        width: 100%;
+        padding-block: 0.9rem;
+        font-size: var(--fs-base);
+    }
+}
+
 /* ============ Tablet ============ */
 @media (max-width: 1024px) {
     .grid--4 {
@@ -5,6 +60,10 @@
     }
 
     .grid--3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
@@ -16,10 +75,23 @@
         --navbar-height: 68px;
     }
 
+    .navbar__logo {
+        height: 44px;
+    }
+
+    .navbar__brand-text {
+        font-size: 1rem;
+    }
+
     .grid--2,
     .grid--3,
     .grid--4 {
         grid-template-columns: 1fr;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
     }
 
     .section-title {
@@ -39,5 +111,9 @@
 
     .btn-group .btn {
         width: 100%;
+    }
+
+    .navbar__brand-text {
+        font-size: 0.92rem;
     }
 }
