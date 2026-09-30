@@ -142,6 +142,17 @@
     .about-preview__panel {
         padding: var(--space-6);
     }
+
+    .principal {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: var(--space-5);
+        text-align: center;
+    }
+
+    .principal__message {
+        font-size: var(--fs-base);
+    }
 }
 
 /* ============ Small phones ============ */

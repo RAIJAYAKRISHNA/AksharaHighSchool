@@ -84,7 +84,8 @@ ol {
 
 .section--primary :focus-visible,
 .footer :focus-visible,
-.hero :focus-visible {
+.hero :focus-visible,
+.page-header :focus-visible {
     outline-color: #ffffff;
 }
 
@@ -944,7 +945,141 @@ ol {
     color: rgba(255, 255, 255, 0.92);
 }
 
-/* ============ Forms (used from Phase 6) ============ */
+/* ============ Inner pages (Phase 6) ============ */
+
+/* ----- Page header ----- */
+.page-header {
+    padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-900));
+}
+
+.page-header__crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--space-4);
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.page-header__crumbs a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.page-header__crumbs a:hover {
+    color: var(--color-accent-500);
+}
+
+.page-header__title {
+    margin-bottom: var(--space-3);
+    color: #ffffff;
+}
+
+.page-header__subtitle {
+    max-width: 640px;
+    margin: 0;
+    font-size: var(--fs-lg);
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* ----- Notice box ----- */
+.notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: var(--space-6);
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--fs-sm);
+    color: #7a4a00;
+    background: var(--color-accent-100);
+    border: 1px solid #f3cf95;
+    border-radius: var(--radius-md);
+}
+
+.notice p {
+    margin: 0;
+}
+
+/* ----- Principal's message ----- */
+.principal {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: var(--space-6);
+    padding: var(--space-7);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.principal__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    font-size: 2.6rem;
+    background: var(--color-primary-100);
+    border-radius: 50%;
+}
+
+.principal__message {
+    margin: 0 0 var(--space-4);
+    padding: 0;
+    font-size: var(--fs-lg);
+    color: var(--color-text);
+}
+
+.principal__name {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-heading);
+}
+
+.principal__role {
+    margin: 0;
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+}
+
+/* ----- Academic stage cards ----- */
+.stage-card__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.stage-card__head .icon-circle {
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.stage-card__head h3 {
+    margin-bottom: var(--space-2);
+    font-size: 1.25rem;
+}
+
+.stage-card>p {
+    color: var(--color-text-muted);
+}
+
+/* ----- Facility cards ----- */
+.facility-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.facility-card p {
+    flex: 1;
+    margin-bottom: var(--space-4);
+}
+
+/* ============ Forms (used from Phase 6B) ============ */
 .form-group {
     display: flex;
     flex-direction: column;
