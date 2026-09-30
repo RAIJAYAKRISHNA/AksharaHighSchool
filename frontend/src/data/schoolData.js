@@ -396,3 +396,116 @@ export const facilities = [
       "Convenient transport options for students, subject to school confirmation.",
   },
 ];
+
+export const studentLifeContent = {
+  eyebrow: "Clubs & Activities",
+  title: "Room to Explore, Create and Shine",
+  subtitle:
+    "Every child has something they love. These activities help them find it.",
+  activities: [
+    {
+      icon: "🎨",
+      title: "Arts",
+      description:
+        "Drawing, painting and craft that let children express their ideas and imagination.",
+    },
+    {
+      icon: "🎵",
+      title: "Music",
+      description:
+        "Singing and instruments that build rhythm, listening skills and confidence.",
+    },
+    {
+      icon: "💃",
+      title: "Dance",
+      description:
+        "Movement and dance that develop coordination, expression and joy.",
+    },
+    {
+      icon: "🎤",
+      title: "Public Speaking",
+      description:
+        "Speeches, debates and presentations that build clear, confident communication.",
+    },
+    {
+      icon: "📖",
+      title: "Literary",
+      description:
+        "Reading, storytelling, writing and quizzes that nurture a love of language.",
+    },
+  ],
+  beyondTitle: "Life Beyond the Classroom",
+  beyondSubtitle: "Every day at Akshara brings something to learn and enjoy.",
+};
+
+export const admissionsContent = {
+  eyebrow: "Admissions",
+  title: "Welcome to the Akshara Family",
+  subtitle:
+    "We welcome children from Nursery to Class 10. Share a few details and our team will guide you through the next steps.",
+  processTitle: "How Admission Works",
+  processSubtitle: "A simple, four-step path from first enquiry to joining school.",
+  process: [
+    {
+      title: "Enquire",
+      description: "Send an enquiry online or contact the school office.",
+    },
+    {
+      title: "Visit the School",
+      description: "Meet the team, see the campus and ask your questions.",
+    },
+    {
+      title: "Submit Documents",
+      description: "Provide the required documents for verification.",
+    },
+    {
+      title: "Confirmation",
+      description:
+        "Complete the admission formalities and welcome your child to Akshara.",
+    },
+  ],
+  detailsTitle: "Documents and Enquiry",
+  detailsSubtitle:
+    "Keep these documents ready, then send us your enquiry.",
+  documentsTitle: "Required Documents",
+  documents: [
+    "Birth certificate of the student",
+    "Recent passport-size photographs of the student",
+    "Address proof of the parent or guardian",
+    "Identity proof of the parent or guardian",
+    "Transfer certificate from the previous school (Class 1 onwards)",
+    "Previous report card (Class 1 onwards)",
+  ],
+  helpTitle: "Need Help?",
+  helpText:
+    "Not sure which class to apply for, or have a question about the process? Our team is happy to help.",
+  formTitle: "Send an Enquiry",
+  formIntro:
+    "Fill in the form and we will get back to you. Fields marked with * are required.",
+};
+
+export const applyingForOptions = [
+  "Nursery",
+  "LKG",
+  "UKG",
+  "Class 1",
+  "Class 2",
+  "Class 3",
+  "Class 4",
+  "Class 5",
+  "Class 6",
+  "Class 7",
+  "Class 8",
+  "Class 9",
+  "Class 10",
+];
+
+export const contactContent = {
+  eyebrow: "Contact Us",
+  title: "We'd Love to Hear From You",
+  subtitle:
+    "Questions about admissions, visits or school life? Send us a message and our team will get back to you.",
+  detailsTitle: "School Contact Details",
+  formTitle: "Send Us a Message",
+  formIntro: "Fields marked with * are required.",
+};

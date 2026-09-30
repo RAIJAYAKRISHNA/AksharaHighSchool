@@ -8,4 +8,8 @@ const api = axios.create({
   },
 });
 
+export const submitEnquiry = (data) => api.post("/enquiries", data);
+
+export const submitContactMessage = (data) => api.post("/contact", data);
+
 export default api;
