@@ -1,0 +1,18 @@
+# Build output
+target/
+
+# Environment files (never commit real secrets)
+.env
+.env.local
+!.env.example
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
