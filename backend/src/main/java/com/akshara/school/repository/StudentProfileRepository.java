@@ -1,5 +1,6 @@
 package com.akshara.school.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -11,4 +12,7 @@ public interface StudentProfileRepository extends JpaRepository<StudentProfile, 
 
     @EntityGraph(attributePaths = "user")
     Optional<StudentProfile> findByUserId(Long userId);
+
+    @EntityGraph(attributePaths = "user")
+    List<StudentProfile> findAllByOrderByUserFullNameAsc();
 }
