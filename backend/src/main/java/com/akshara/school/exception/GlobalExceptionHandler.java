@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -43,6 +45,17 @@ public class GlobalExceptionHandler {
                 HttpStatus.BAD_REQUEST,
                 "The request body is missing or malformed.",
                 null);
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<Map<String, Object>> handleAuthentication(AuthenticationException ex) {
+        return buildResponse(HttpStatus.UNAUTHORIZED, "Please sign in to continue.", null);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Map<String, Object>> handleAccessDenied(AccessDeniedException ex) {
+        return buildResponse(
+                HttpStatus.FORBIDDEN, "You do not have permission to do that.", null);
     }
 
     @ExceptionHandler(Exception.class)
