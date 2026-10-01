@@ -12,4 +12,8 @@ export const submitEnquiry = (data) => api.post("/enquiries", data);
 
 export const submitContactMessage = (data) => api.post("/contact", data);
 
+export const getEvents = () => api.get("/events");
+
+export const getGalleryItems = () => api.get("/gallery");
+
 export default api;

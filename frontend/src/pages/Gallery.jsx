@@ -1,31 +1,33 @@
 ﻿import { useMemo, useState } from "react";
 
 import Button from "../components/common/Button.jsx";
+import Loading from "../components/common/Loading.jsx";
 import PageHeader from "../components/common/PageHeader.jsx";
 import SectionTitle from "../components/common/SectionTitle.jsx";
 import GalleryGrid from "../components/gallery/GalleryGrid.jsx";
 import GalleryModal from "../components/gallery/GalleryModal.jsx";
-import {
-  galleryContent,
-  sampleGalleryItems,
-  sampleNotice,
-} from "../data/schoolData.js";
+import useFetch from "../hooks/useFetch.js";
+import { getGalleryItems } from "../services/api.js";
+import { galleryContent } from "../data/schoolData.js";
 
 function Gallery() {
+  const { data, loading, error, retry } = useFetch(getGalleryItems);
   const [category, setCategory] = useState("All");
   const [selectedIndex, setSelectedIndex] = useState(null);
 
+  const items = useMemo(() => data || [], [data]);
+
   const categories = useMemo(
-    () => ["All", ...new Set(sampleGalleryItems.map((item) => item.category))],
-    []
+    () => ["All", ...new Set(items.map((item) => item.category))],
+    [items]
   );
 
   const visibleItems = useMemo(
     () =>
       category === "All"
-        ? sampleGalleryItems
-        : sampleGalleryItems.filter((item) => item.category === category),
-    [category]
+        ? items
+        : items.filter((item) => item.category === category),
+    [items, category]
   );
 
   const selectedItem =
@@ -55,41 +57,51 @@ function Gallery() {
 
       <section className="section">
         <div className="container">
-          <div className="notice" role="note">
-            <span aria-hidden="true">ℹ️</span>
-            <p>{sampleNotice} Photos will be added once the school shares them.</p>
-          </div>
-
           <SectionTitle
             eyebrow={galleryContent.eyebrow}
             title={galleryContent.title}
             subtitle={galleryContent.subtitle}
           />
 
-          <div
-            className="filter-bar"
-            role="group"
-            aria-label="Filter gallery by category"
-          >
-            {categories.map((name) => (
-              <Button
-                key={name}
-                size="sm"
-                variant={name === category ? "primary" : "outline"}
-                aria-pressed={name === category}
-                onClick={() => handleCategoryChange(name)}
-              >
-                {name}
+          {loading && <Loading text="Loading photos..." />}
+
+          {!loading && error && (
+            <div className="form-message form-message--error" role="alert">
+              <p>{error}</p>
+              <Button size="sm" variant="outline" onClick={retry}>
+                Try Again
               </Button>
-            ))}
-          </div>
+            </div>
+          )}
 
-          <GalleryGrid
-            items={visibleItems}
-            onSelect={(index) => setSelectedIndex(index)}
-          />
+          {!loading && !error && (
+            <>
+              {items.length > 0 && (
+                <div
+                  className="filter-bar"
+                  role="group"
+                  aria-label="Filter gallery by category"
+                >
+                  {categories.map((name) => (
+                    <Button
+                      key={name}
+                      size="sm"
+                      variant={name === category ? "primary" : "outline"}
+                      aria-pressed={name === category}
+                      onClick={() => handleCategoryChange(name)}
+                    >
+                      {name}
+                    </Button>
+                  ))}
+                </div>
+              )}
 
-          <p className="section-note">{galleryContent.note}</p>
+              <GalleryGrid
+                items={visibleItems}
+                onSelect={(index) => setSelectedIndex(index)}
+              />
+            </>
+          )}
         </div>
       </section>
 
