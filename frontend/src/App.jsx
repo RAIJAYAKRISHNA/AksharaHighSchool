@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "./components/common/ScrollToTop.jsx";
+import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
 import Navbar from "./components/navbar/Navbar.jsx";
 import Footer from "./components/footer/Footer.jsx";
 
@@ -13,6 +14,9 @@ import StudentLife from "./pages/StudentLife.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import Events from "./pages/Events.jsx";
 import Contact from "./pages/Contact.jsx";
+import Login from "./pages/Login.jsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import StudentDashboard from "./pages/student/StudentDashboard.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 function App() {
@@ -35,6 +39,23 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/events" element={<Events />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute role="ADMIN">
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/student"
+            element={
+              <ProtectedRoute role="STUDENT">
+                <StudentDashboard />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

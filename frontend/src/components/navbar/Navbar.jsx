@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import logo from "../../assets/logo/akshara-logo.png";
 import Button from "../common/Button.jsx";
+import { getDashboardPath, useAuth } from "../../context/AuthContext.jsx";
 import { schoolInfo, navLinks } from "../../data/schoolData.js";
 
 const MOBILE_BREAKPOINT = 1240;
 
+const linkClass = ({ isActive }) =>
+    isActive ? "navbar__link navbar__link--active" : "navbar__link";
+
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const { pathname } = useLocation();
+    const navigate = useNavigate();
+    const { user, logout } = useAuth();
 
     useEffect(() => {
         setIsOpen(false);
@@ -42,6 +48,12 @@ function Navbar() {
             window.removeEventListener("resize", handleResize);
         };
     }, [isOpen]);
+
+    const handleLogout = () => {
+        setIsOpen(false);
+        logout();
+        navigate("/");
+    };
 
     const menuClasses = ["navbar__menu", isOpen ? "navbar__menu--open" : ""]
         .filter(Boolean)
@@ -90,17 +102,36 @@ function Navbar() {
                                 <NavLink
                                     to={link.path}
                                     end={link.path === "/"}
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? "navbar__link navbar__link--active"
-                                            : "navbar__link"
-                                    }
+                                    className={linkClass}
                                 >
                                     {link.label}
                                 </NavLink>
                             </li>
                         ))}
+                        <li>
+                            {user ? (
+                                <NavLink to={getDashboardPath(user.role)} className={linkClass}>
+                                    Dashboard
+                                </NavLink>
+                            ) : (
+                                <NavLink to="/login" className={linkClass}>
+                                    Login
+                                </NavLink>
+                            )}
+                        </li>
                     </ul>
+
+                    {user && (
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="navbar__cta"
+                            onClick={handleLogout}
+                        >
+                            Logout
+                        </Button>
+                    )}
+
                     <Button
                         to="/admissions"
                         variant="secondary"
