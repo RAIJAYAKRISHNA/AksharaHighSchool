@@ -5,7 +5,10 @@ import Button from "../../components/common/Button.jsx";
 import PageHeader from "../../components/common/PageHeader.jsx";
 import SectionTitle from "../../components/common/SectionTitle.jsx";
 import EnquiriesPanel from "../../components/admin/EnquiriesPanel.jsx";
+import EventsPanel from "../../components/admin/EventsPanel.jsx";
+import GalleryPanel from "../../components/admin/GalleryPanel.jsx";
 import MessagesPanel from "../../components/admin/MessagesPanel.jsx";
+import StudentsPanel from "../../components/admin/StudentsPanel.jsx";
 import ChangePasswordForm from "../../components/forms/ChangePasswordForm.jsx";
 import { useAuth } from "../../context/AuthContext.jsx";
 import useFetch from "../../hooks/useFetch.js";
@@ -14,6 +17,9 @@ import { getAdminSummary } from "../../services/api.js";
 const TABS = [
     { id: "enquiries", label: "Enquiries" },
     { id: "messages", label: "Messages" },
+    { id: "students", label: "Students" },
+    { id: "events", label: "Events" },
+    { id: "gallery", label: "Gallery" },
     { id: "account", label: "My Account" },
 ];
 
@@ -83,6 +89,9 @@ function AdminDashboard() {
 
                     {tab === "enquiries" && <EnquiriesPanel onChanged={summary.retry} />}
                     {tab === "messages" && <MessagesPanel onChanged={summary.retry} />}
+                    {tab === "students" && <StudentsPanel onChanged={summary.retry} />}
+                    {tab === "events" && <EventsPanel onChanged={summary.retry} />}
+                    {tab === "gallery" && <GalleryPanel onChanged={summary.retry} />}
                     {tab === "account" && (
                         <div className="card">
                             <h3>Change Password</h3>

@@ -99,7 +99,7 @@ export const changePassword = (data) => api.post("/auth/change-password", data);
 // Student
 export const getStudentProfile = () => api.get("/student/profile");
 
-// Admin
+// Admin: dashboard, enquiries, messages
 export const getAdminSummary = () => api.get("/admin/summary");
 export const getAdminEnquiries = () => api.get("/admin/enquiries");
 export const updateEnquiryStatus = (id, status) =>
@@ -107,5 +107,24 @@ export const updateEnquiryStatus = (id, status) =>
 export const getAdminMessages = () => api.get("/admin/contact-messages");
 export const markMessageRead = (id) =>
   api.post(`/admin/contact-messages/${id}/read`);
+
+// Admin: students
+export const getAdminStudents = () => api.get("/admin/students");
+export const createStudent = (data) => api.post("/admin/students", data);
+export const updateStudent = (id, data) => api.put(`/admin/students/${id}`, data);
+export const activateStudent = (id) => api.post(`/admin/students/${id}/activate`);
+export const deactivateStudent = (id) =>
+  api.post(`/admin/students/${id}/deactivate`);
+export const resetStudentPassword = (id) =>
+  api.post(`/admin/students/${id}/reset-password`);
+
+// Admin: events and gallery
+export const createEvent = (data) => api.post("/admin/events", data);
+export const updateEvent = (id, data) => api.put(`/admin/events/${id}`, data);
+export const deleteEvent = (id) => api.delete(`/admin/events/${id}`);
+export const createGalleryItem = (data) => api.post("/admin/gallery", data);
+export const updateGalleryItem = (id, data) =>
+  api.put(`/admin/gallery/${id}`, data);
+export const deleteGalleryItem = (id) => api.delete(`/admin/gallery/${id}`);
 
 export default api;
